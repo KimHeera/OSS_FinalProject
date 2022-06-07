@@ -1,0 +1,474 @@
+/* Global  주석은 command + /  */
+:root {
+  /*Color*/
+
+  /* Font size */
+  --font-large: 48px;
+  --font-medium: 28px;
+  --font-regular: 18px;
+  --font-small: 16px;
+  --font-micro: 14px;
+
+  /* Font weight */
+  --weight-bold: 700;
+  --weight-semi-bold: 600;
+  --weight-regular: 400;
+
+  /* Size */
+  --size-border-radius: 4px; /*볼더 영역은 무조건 4px로 고정*/
+  /* Animation */
+  --animation-duration: 300ms;
+}
+
+/* Universal tags */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin: 0;
+  cursor: default;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Typography 텍스트에 대한 스타일링을 미리 해둠 */
+h1 {
+  font-size: var(--font-large);
+  font-weight: var(--weight-bold);
+  color: black;
+  margin: 16px 0;
+  /* margin 을 두개만 쓰면 첫번째 꺼는 위아래 두번째꺼는 양옆에 4개를 쓰면 다 */
+}
+
+h2 {
+  font-size: var(--font-medium);
+  font-weight: var(--weight-semi-bold);
+  color: black;
+  margin: 8px 0;
+}
+
+h3 {
+  font-size: var(--font-regular);
+  font-weight: var(--font-regular);
+  color: black;
+  margin: 8px 0;
+}
+
+p {
+  font-size: var(--font-regular);
+  font-weight: var(--font-regular);
+  color: black;
+  margin: 4px 0;
+}
+
+/* Navbar */
+
+#navbar {
+  width: 100%;
+  position: fixed; /* 항상 상단에 고정되어있기 때문에 */
+  display: flex; /*중심은 수평적, 수직은 그 반대*/
+  justify-content: space-between;
+  background-color: transparent;
+  align-items: center; /*수직의 중심 정렬*/
+  padding: 16px;
+  transition: all var(--animation-duration) ease-in-out;
+  z-index: 1; /* navbar가 항상 가장 위에 있어야한다. */
+}
+
+.navbar__menu {
+  display: flex;
+  color: white;
+}
+
+.navbar__logo {
+  font-size: var(--font-medium);
+  font-weight: var(--weight-semi-bold);
+}
+
+#navbar.navbar--dark {
+  background-color: turquoise;
+  padding: 8px;
+}
+
+.navbar__menu__item {
+  padding: 8px, 12px;
+  margin: 0 16px;
+  cursor: pointer; /*클릭이 가능하다고 지정*/
+  border-radius: var(--size-border-radius);
+}
+
+.navbar__menu__item.active {
+  border: 1px solid white;
+  border-radius: 4px; /*각도를 동그랗게 표현*/
+}
+
+.navbar__menu__item:hover {
+  background-color: darkcyan;
+  border-radius: 4px;
+}
+
+.navbar__toggle-btn {
+  position: absolute;
+  top: 12px;
+  right: 32px;
+  font-size: 24px;
+  color: white;
+  background-color: turquoise;
+  display: none;
+  outline: yellowgreen;
+  border-color: turquoise;
+}
+
+/* Home */
+#home {
+  background: url("imgs/mybackground.png") center/cover no-repeat;
+  padding: 40px;
+  text-align: center;
+  padding: 100px;
+}
+
+.home__avartar {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+}
+
+.home__title,
+.home__description {
+  color: whitesmoke;
+}
+
+.home__contact {
+  color: blue;
+  font-size: var(--font-regular);
+  font-weight: var(--weight-bold);
+  margin: 24px;
+  padding: 8px 12px;
+  border: 2px solid white;
+  border-radius: var(--size-border-radius);
+}
+
+.section {
+  padding: 50px;
+  text-align: center;
+  margin: auto;
+}
+
+.section__container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* About */
+.about__majors {
+  display: flex;
+  justify-content: space-between;
+  margin: 80px 0px;
+}
+
+.major__icon {
+  width: 170px;
+  height: 170px;
+  line-height: 170px; /*높이만큼 지정하면 자동으로 중간으로 배치된다.*/
+  font-size: 70px;
+  border: 1px solid blue;
+  border-radius: 50%;
+  margin: auto;
+  color: blue;
+  margin-bottom: 16px;
+}
+
+.major__icon i {
+  transition: all var(--animation-duration); /*아이콘에 애니메이션을 추가한다. 300mm동안 애니메이션 동작*/
+}
+
+.major__icon i:hover {
+  color: pink;
+  transform: rotate(-30deg) scale(1.1); /*마우스 커서를 이미지에 갔다 대변 변환된다.*/
+}
+
+.major__title,
+.major__description {
+  color: darkgray;
+}
+
+.major__description {
+  font-size: var(--font-small);
+}
+
+.job {
+  display: flex;
+  align-items: center; /*박스 내부 중앙정렬*/
+}
+
+.job__description {
+  margin: 0 16px;
+  text-align: left;
+}
+
+.job__name {
+  font-size: var(--font-small);
+}
+.job__period {
+  color: darkgray;
+}
+
+#skills {
+  background-color: rgb(236, 236, 174);
+}
+
+.skillset {
+  display: flex;
+  background-color: rgb(78, 76, 76);
+  color: whitesmoke;
+  margin: 20px 0;
+}
+
+.skillset__title {
+  color: white;
+}
+
+.skillset__left {
+  flex-basis: 60%;
+  background-color: rgb(87, 85, 85);
+  /* flex item 을 결정하는 기본크기 설정 */
+  padding: 20px;
+}
+
+.skillset__right {
+  flex-basis: 40%;
+}
+
+.tools {
+  background-color: gray;
+}
+
+.skill__description {
+  display: flex; /*flex를 적용하면 컨테이너 안의 박스들이 수평배열로 바뀐다.  */
+  justify-content: space-between;
+}
+
+.skill {
+  margin-bottom: 32px;
+}
+
+.skill__value {
+  width: 100%;
+  height: 5px;
+  /* html 에서 style속성을 통해 각 div태그마다 개별적으로 스타일 적용 가능  */
+  background-color: lightseagreen;
+}
+
+.skill__bar {
+  /* div는 안에 컨텐츠가 없기 때문에 width나 height를 지정해줘야한다.*/
+  width: 100%;
+  height: 5px;
+  background-color: grey;
+}
+
+.tools,
+.etc {
+  padding: 20px;
+}
+
+/* Work */
+.work__categories {
+  margin: 40px;
+}
+
+.category__btn {
+  border: 1px solid gray;
+  background-color: whitesmoke;
+  border-radius: var(--size-border-radius);
+  font-size: var(--font-regular);
+  padding: 8px 48px;
+}
+
+.category__btn.active,
+.category__btn:hover {
+  background-color: rgb(122, 235, 70);
+  color: white;
+}
+
+.category__btn.active .category__count,
+.category__btn:hover .category__count {
+  opacity: 1;
+  /* opacity는 요소의 투명도를 설정한다. */
+  top: 0;
+}
+
+.category__count {
+  border: 1px solid;
+  background-color: orange;
+  border-radius: 50%;
+  color: white;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  /* 높이랑 같게 하면 버튼 중간에 알맞게 잘나옴 */
+  display: inline-block;
+  position: relative;
+  top: -20px;
+  left: 4px;
+  opacity: 0;
+  /* opacity가 0이면 완전 투명하게 하여 숨긴다. */
+  transition: all var(--animation-duration) ease-in;
+}
+
+.work__projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.project {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  height: 400px;
+  align-items: center;
+  margin: 2px;
+  background-color: whitesmoke;
+}
+
+.project__img {
+  max-width: 100%;
+  /* p_img는 자기가 담겨있는 통안에서만 꽉차야된다. */
+  max-height: 100%;
+}
+
+.project__description {
+  position: absolute;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  /* absolute를 사용하게되면 근접한 부모노드중에 
+  기본값인 포지션 static을 쓰지않는 부모를 찾아감*/
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all var(--animation-duration) ease-in;
+}
+
+.project:hover .project__description {
+  opacity: 0.8;
+  transform: translateY(0px);
+  /* 커서를 가져다대면 서서히 글씨가 들어난다. */
+}
+
+.project__description h3 {
+  color: white;
+}
+
+.project__description h3::after {
+  content: "";
+  display: block;
+  position: relative;
+  left: 50%;
+  width: 25px;
+  height: 2px;
+  margin-left: -12px;
+  background-color: gray;
+  margin-top: 8px;
+}
+
+/* Contact */
+#contact {
+  background-color: green;
+}
+
+.contact__title,
+.contact__rights,
+.contact__email {
+  color: white;
+}
+
+.contact__title {
+  margin: 32px 0;
+}
+
+.contact__links {
+  font-size: var(--font-large);
+  margin: 24px 0;
+}
+
+.contact__links i:hover {
+  transform: scale(1.1);
+  color: blue;
+  transition: all var(--animation-duration) ease-in;
+  /* ease in 은 서서히 빨라지다가 멈춘다. */
+}
+
+/* Scroll */
+.arrow-up {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 70px;
+  height: 70px;
+  font-size: 50px;
+  background-color: greenyellow;
+  color: white;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  /* 안보일때는 클릭이 안되도록 지정 */
+  transition: opacity 300ms ease-in;
+}
+
+.arrow-up.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar__toggle-btn {
+    display: block;
+    outline: 0;
+    opacity: 0px;
+  }
+
+  #navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar__menu {
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    display: none;
+  }
+
+  .about__majors {
+    flex-direction: column;
+    /* 모바일 스크린에 맞는 사이즈일때 한줄에 하나씩보이게 설정한다. */
+  }
+
+  .major {
+    margin-bottom: 38px;
+  }
+
+  .skillset {
+    flex-direction: column;
+  }
+
+  .project {
+    flex-grow: 1;
+  }
+}
