@@ -41,9 +41,11 @@ You can contact me via my email.:smirk_cat:
 
 ## Presentation Video (YouTube) Link
 
+--> https://youtu.be/Zz6XTYFZg0s
+
 ## Reference
 
-https://github.com/kimsangwoo66/kimsangwoo66.github.io.git
+-- >https://github.com/kimsangwoo66/kimsangwoo66.github.io.git
 
 
 
